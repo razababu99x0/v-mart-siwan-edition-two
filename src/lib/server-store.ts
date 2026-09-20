@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { CATALOG } from "./catalog";
 
 export async function getProducts() {
+  if (!process.env.DATABASE_URL) return CATALOG;
   const rows = await db.select().from(products);
   if (!rows.length) {
     await db.insert(products).values(CATALOG.map(data => ({ id: data.id, data }))).onConflictDoNothing();

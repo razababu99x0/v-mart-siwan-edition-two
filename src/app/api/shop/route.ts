@@ -6,6 +6,7 @@ import type { CartLine } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 export async function GET() {
+  if (!process.env.DATABASE_URL) return Response.json({ cart: [], wishlist: [], products: await getProducts(), demo: true });
   try {
     const [session, products] = await Promise.all([getSession(), getProducts()]);
     return Response.json({ cart: session.cart, wishlist: session.wishlist, products });
