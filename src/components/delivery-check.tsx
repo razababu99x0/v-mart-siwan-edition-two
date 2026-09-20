@@ -1,0 +1,9 @@
+"use client";
+import { useState } from "react";
+import { MapPin, CheckCircle2, Info } from "lucide-react";
+export function DeliveryCheck({pin,onPinChange}: {pin?:string;onPinChange?:(value:string)=>void}) {
+  const [internal,setInternal]=useState("");const [result,setResult]=useState<{ok:boolean;message:string}|null>(null);const [loading,setLoading]=useState(false);const value=pin??internal;
+  function change(next:string){const clean=next.replace(/\D/g,"").slice(0,6);if(onPinChange)onPinChange(clean);else setInternal(clean);setResult(null);}
+  async function check(){setLoading(true);setResult(null);try{const response=await fetch(`/api/delivery?pin=${encodeURIComponent(value)}`);const data=await response.json();setResult({ok:response.ok,message:response.ok?data.message:data.error});}catch{setResult({ok:false,message:"Couldn't check right now. Please try again."});}finally{setLoading(false);}}
+  return <div className="delivery-check"><div className="delivery-check-heading"><MapPin size={16}/><strong>A little style, delivered.</strong></div><div className="pin-input-wrap"><label className="sr-only" htmlFor={`delivery-pin-${pin===undefined?"product":"checkout"}`}>Delivery PIN code</label><input id={`delivery-pin-${pin===undefined?"product":"checkout"}`} value={value} onChange={e=>change(e.target.value)} placeholder="Enter 6-digit PIN code" inputMode="numeric" maxLength={6} autoComplete="postal-code" onKeyDown={e=>{if(e.key==="Enter"){e.preventDefault();check();}}}/><button type="button" disabled={loading||value.length!==6} onClick={check}>{loading?"Checking…":"Check"}</button></div>{result&&<p role="status" className={`pin-result ${result.ok?"success":"error"}`}>{result.ok?<CheckCircle2 size={14}/>:<Info size={14}/>}<span>{result.message}</span></p>}<small>Prototype estimates only. Real availability may vary.</small></div>;
+}

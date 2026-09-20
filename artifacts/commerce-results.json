@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Search, Escape close, and keyboard focus restoration",
+    "Category navigation and live catalogue filtering",
+    "Budget logic and resetting filters",
+    "Wishlist persists across reloads",
+    "Variant-aware quick add, quantity controls, and persistent cart",
+    "Guest details, delivery PIN check, three payment methods, and failure recovery",
+    "Saved order receipt reloads and purchased cart clears",
+    "Session-private orders, server stock validation, invalid PIN rejection, and newsletter persistence",
+    "Product gallery, image zoom, and size guide",
+    "Mobile navigation, responsive layout, and Hindi language toggle"
+  ],
+  "orderId": "VM-6E5871BD",
+  "errors": []
+}

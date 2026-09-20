@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Visitor-controlled campaign switching",
+    "Live 3D finishes, keyboard rotation, reset, lighting and focus restoration",
+    "Keyboard command search",
+    "Saved preferences, strict budget matches, mood ranking, reload persistence and session isolation",
+    "Style profile deletion",
+    "Outfit variant selection, exact totals and atomic whole-look cart operation",
+    "Device-local browsing history persists and clears",
+    "Shareable category, price, size and sort filters survive reload",
+    "Mobile dock, Style Studio, contextual fit bar and uncluttered checkout"
+  ],
+  "errors": []
+}

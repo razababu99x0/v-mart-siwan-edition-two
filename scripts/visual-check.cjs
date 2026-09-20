@@ -1,0 +1,36 @@
+const { chromium } = require('@playwright/test');
+const fs = require('node:fs');
+(async () => {
+  fs.mkdirSync('artifacts', { recursive: true });
+  const browser = await chromium.launch({ headless: true, args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('http://localhost:3000', { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => document.fonts.ready);
+  await page.waitForTimeout(1800);
+  await page.screenshot({ path: 'artifacts/desktop-home.png' });
+  console.log('DESKTOP', await page.evaluate(() => ({ title: document.title, viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth, h1: document.querySelector('h1')?.innerText, canvases: document.querySelectorAll('canvas').length, images: [...document.querySelectorAll('img')].filter(img => !img.complete || !img.naturalWidth).map(img => img.src) })));
+  const height = await page.evaluate(() => document.documentElement.scrollHeight);
+  for (let y = 0; y < height; y += 650) { await page.evaluate(y => window.scrollTo(0, y), y); await page.waitForTimeout(170); }
+  await page.waitForTimeout(700);
+  await page.screenshot({ path: 'artifacts/desktop-full.png', fullPage: true });
+  await page.goto('http://localhost:3000/product/relaxed-linen-shirt', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(900);
+  await page.screenshot({ path: 'artifacts/desktop-product.png' });
+  const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
+  const phone = await mobile.newPage();
+  phone.on('pageerror', error => errors.push('MOBILE: ' + error.message));
+  await phone.goto('http://localhost:3000', { waitUntil: 'domcontentloaded' });
+  await phone.evaluate(() => document.fonts.ready);
+  await phone.waitForTimeout(1300);
+  await phone.screenshot({ path: 'artifacts/mobile-home.png' });
+  console.log('MOBILE', await phone.evaluate(() => ({ viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth, h1: document.querySelector('h1')?.innerText })));
+  await phone.locator('#arrivals').scrollIntoViewIfNeeded();
+  await phone.waitForTimeout(700);
+  await phone.screenshot({ path: 'artifacts/mobile-products.png' });
+  console.log('BROWSER ERRORS', errors);
+  fs.writeFileSync('artifacts/browser-errors.json', JSON.stringify(errors, null, 2));
+  await browser.close();
+})().catch(error => { console.error(error); process.exit(1); });

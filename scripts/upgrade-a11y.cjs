@@ -1,0 +1,15 @@
+const { chromium } = require('@playwright/test');
+const AxeBuilder = require('@axe-core/playwright').default;
+const fs = require('node:fs');
+(async () => {
+ const browser = await chromium.launch({headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+ const context = await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});const page=await context.newPage();const report={};
+ async function audit(name){await page.waitForTimeout(500);const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();report[name]=results.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}));console.log(name,JSON.stringify(report[name],null,2));}
+ await page.goto('http://localhost:3000',{waitUntil:'domcontentloaded'});await page.waitForTimeout(1100);const height=await page.evaluate(()=>document.documentElement.scrollHeight);for(let y=0;y<height;y+=750){await page.evaluate(y=>window.scrollTo(0,y),y);await page.waitForTimeout(150);}await audit('home-edition-02');await page.evaluate(()=>window.scrollTo(0,0));await page.waitForTimeout(500);
+ await page.locator('.nav-studio-button').click();await audit('studio-category');await page.getByRole('dialog').getByRole('button',{name:'Continue',exact:true}).click();await audit('studio-mood');await page.getByRole('dialog').getByRole('button',{name:'Continue',exact:true}).click();await audit('studio-budget');await page.getByRole('button',{name:'Reveal my edit',exact:true}).click();await page.waitForTimeout(500);await audit('studio-results');await page.keyboard.press('Escape');await page.waitForTimeout(400);
+ await page.getByRole('button',{name:'Build this look',exact:true}).click();await audit('outfit-builder');await page.keyboard.press('Escape');await page.waitForTimeout(400);
+ await page.getByRole('button',{name:'STYLE IN 3D',exact:true}).click();await page.waitForTimeout(1200);await audit('3d-atelier');await page.keyboard.press('Escape');await page.waitForTimeout(400);
+ await page.goto('http://localhost:3000/product/relaxed-linen-shirt',{waitUntil:'domcontentloaded'});await page.waitForTimeout(800);await page.evaluate(()=>window.scrollTo(0,900));await audit('product-purchase-bar');
+ const mobile=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});const phone=await mobile.newPage();await phone.goto('http://localhost:3000',{waitUntil:'domcontentloaded'});await phone.waitForTimeout(1000);const m=await new AxeBuilder({page:phone}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();report['mobile-home']=m.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}));console.log('mobile-home',JSON.stringify(report['mobile-home'],null,2));
+ fs.mkdirSync('artifacts/edition-02',{recursive:true});fs.writeFileSync('artifacts/edition-02/accessibility.json',JSON.stringify(report,null,2));await browser.close();
+})().catch(error=>{console.error(error);process.exit(1)});

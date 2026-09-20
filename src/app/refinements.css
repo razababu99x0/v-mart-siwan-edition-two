@@ -1,0 +1,126 @@
+/* Final legibility, bilingual typography and touch-target refinements. */
+.checkout-heading>.eyebrow,.dialog-heading p,.search-results small { color:#695950; }
+.search-results small { font-size:10px; }
+.search-results strong { font-size:12px; }
+@font-face { font-family:"Noto Sans Devanagari"; src:url('/fonts/noto-devanagari-regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; unicode-range:U+0900-097F,U+A8E0-A8FF; }
+@font-face { font-family:"Noto Sans Devanagari"; src:url('/fonts/noto-devanagari-bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; unicode-range:U+0900-097F,U+A8E0-A8FF; }
+body { font-family:var(--font-body),"Noto Sans Devanagari",Arial,sans-serif; }
+h1,h2,.category-bottom h3 { font-family:var(--font-display),"Noto Sans Devanagari",Impact,sans-serif; }
+.desktop-nav a { font-size:12px; }
+.hero-eyebrow { font-size:10px; }
+.hero-description { font-size:14px; }
+.hero-ctas .button { font-size:12px; }
+.hero-reassurance { font-size:8px; }
+.benefits-inner>div { font-size:9px; }
+.section-heading .eyebrow { font-size:10px; }
+.category-bottom p { font-size:11px; }
+.category-number { font-size:7px; }
+.section-heading-right p,.section-description { font-size:13px; }
+.product-meta-top { flex-wrap:wrap; gap:3px; }
+.product-meta-top>span { color:#625956; font-size:8px; letter-spacing:.6px; }
+.product-name { font-size:14px; }
+.product-price strong { font-size:16px; }
+.product-price del { color:#6f635e; font-size:11px; }
+.product-price>span { font-size:10px; color:#496547; }
+.product-badge { font-size:7px; }
+.swatches>button { min-width:24px; min-height:26px; }
+.swatches>button>span { width:10px; height:10px; }
+.product-image-wrap:focus-within .quick-add { opacity:1!important; transform:none!important; }
+.arrivals-footer>span { color:#685d58; font-size:8px; }
+.lookbook-copy .section-description { color:#615957; font-size:12px; }
+.look-number,.lookbook-products small span,.lookbook-footnote { color:#66574e; }
+.lookbook-products strong { font-size:12px; }
+.lookbook-products small { font-size:10px; }
+.lookbook-footnote { font-size:8px; letter-spacing:1.3px; }
+.budget-card>p { color:#65584f; font-size:10px; }
+.budget-overline { font-size:8px; }
+.budget-bottom { font-size:9px; }
+.store-intro,.store-hindi,.store-map-caption,.store-gallery-label>span:last-child { color:#665d54; }
+.store-details p { color:#695c55; font-size:11px; }
+.store-details strong,.store-details a { font-size:12px; }
+.store-intro { font-size:13px; }
+.store-map-caption { font-size:7px; }
+.store-gallery-label>span:last-child { font-size:9px; }
+.map-location-card small { color:#6e5f56; font-size:9px; }
+.footer-watermark { color:#716873; }
+.footer-link-column a,.footer-link-column>button,.footer-store>p { font-size:11px; }
+.footer-top>div>p { font-size:12px; }
+.footer-link-column h3,.footer-store h3 { font-size:8px; }
+.footer-brand>p { font-size:11px; }
+.breadcrumbs,.product-thumbnails>span,.detail-price>del,.tax-note,.product-choice-label>span:last-child,.colour-note,.variant-stock,.product-perks>span,.delivery-check>small,.product-accordion p,.fine-print { color:#6e5c50; }
+.breadcrumbs { font-size:10px; }
+.product-short-description { font-size:13px; color:#6b594e; }
+.tax-note,.colour-note,.variant-stock { font-size:10px; }
+.product-choice-label { font-size:12px; }
+.product-choice-label>span:last-child,.product-choice-label button { font-size:10px; }
+.product-perks>span { font-size:9px; }
+.product-accordion p { font-size:12px; }
+.delivery-check>small { font-size:9px; }
+.delivery-check-heading>strong { font-size:12px; }
+.pin-input-wrap>input { font-size:12px; }
+.pin-input-wrap>input::placeholder { color:#756251; }
+.pin-input-wrap>button { min-height:44px; font-size:11px; }
+.pin-result { font-size:11px; }
+.shipping-progress small,.cart-line>div>p,.cart-summary>p,.secure-note,.search-result-label,.search-suggestions>span,.empty-state p { color:#6e5d58; }
+.shipping-progress small,.secure-note { font-size:9px; }
+.cart-summary>p { font-size:10px; }
+.cart-line>div>a { font-size:13px; }
+.cart-line>div>p { font-size:11px; }
+.cart-remove { color:#725e59; }
+.quick-product .field-label { color:#6a5750; }
+.close-button { width:44px; min-height:44px; }
+.hotspot-dot { width:44px; height:44px; }
+.hotspot-product { bottom:57px; }
+.checkout-heading>p,.checkout-panel-heading p,.checkout-security-note,.checkout-topline>.text-link,.checkout-topline>span,.pickup-preview p,.pickup-preview small,.summary-items small,.summary-totals>div>span,.summary-totals>p,.summary-prototype-note,.summary-prototype-note strong,.contact-review small,.delivery-options small,.address-review,.checkout-info p,.payment-prototype-banner small,.payment-preview>p,.prototype-consent,.decline-control,.order-success>p,.success-order-card span,.receipt-items small,.prototype-note { color:#6b5747; }
+.checkout-heading>p { font-size:13px; }
+.checkout-panel-heading p { font-size:11px; }
+.checkout-security-note { font-size:9px; }
+.form-field { font-size:12px; }
+.form-field input,.form-field select { font-size:12px; }
+.form-field input::placeholder { color:#79634f; font-size:11px; }
+.phone-input>span { color:#715946; }
+.checkout-panel-heading h2 { font-size:27px; }
+.fulfilment-choice>button { color:#6c5039; font-size:11px; }
+.checkout-steps>button { color:#6c5544; font-size:11px; }
+.checkout-steps>button>span:first-child { color:#705340; }
+.summary-totals>div { font-size:12px; }
+.summary-items strong { font-size:12px; }
+.summary-items small { font-size:10px; }
+.summary-heading>button { color:#79583f; }
+.summary-totals .free-delivery,.savings-note { color:#495539; }
+.savings-note { font-size:10px; }
+.summary-prototype-note p { font-size:9px; }
+.payment-prototype-banner { color:#6c5523; }
+.payment-prototype-banner strong { font-size:9px; }
+.payment-prototype-banner small { font-size:9px; }
+.payment-tabs>button:not(.selected) { color:#775438; }
+.payment-preview>p { font-size:11px; }
+.test-payment-pill { color:#536033; font-size:10px; }
+.prototype-consent { font-size:11px; }
+.decline-control { font-size:10px; }
+.delivery-options small,.contact-review small { font-size:10px; }
+.delivery-options b,.delivery-options>label>svg { color:#71523a; }
+.contact-review strong { font-size:12px; }
+.checkout-info p { font-size:11px; }
+.success-order-card span { font-size:8px; }
+.order-success>p { font-size:13px; }
+.prototype-note { font-size:10px; }
+.receipt-items small { font-size:10px; }
+.announcement,.footer-bottom { font-size:9px; }
+html[lang="hi"] .hero-title { font-size:77px; line-height:1.35; letter-spacing:-2px; }
+html[lang="hi"] .category-bottom h3 { font-size:30px; line-height:1.3; }
+html[lang="hi"] .section-heading h2 { font-size:38px; line-height:1.35; }
+html[lang="hi"] .lookbook-copy h2 { font-size:60px; line-height:1.2; }
+@media(max-width:1250px) { .hero-reassurance { font-size:7px; } .benefits-inner>div { font-size:8px; } .product-meta-top>span { font-size:7px; } .budget-overline { font-size:7px; } .budget-card>p { font-size:9px; } .store-map-caption { font-size:6px; } }
+@media(max-width:1023px) { .hero-description { font-size:13px; } .hero-title { font-size:94px; } .hero-ctas .button { font-size:11px; } .product-name { font-size:13px; } .product-meta-top>span { font-size:7px; } .store-details strong,.store-details a { font-size:11px; } .benefits-inner>div { font-size:7px; } .budget-overline { font-size:6px; } .budget-bottom { font-size:8px; } .budget-card>p { font-size:8px; } .section-heading .eyebrow { font-size:8px; } .product-perks>span { font-size:8px; } .checkout-panel-heading h2 { font-size:23px; } .checkout-steps>button { font-size:9px; } .checkout-panel-heading p { font-size:9px; } .form-field { font-size:11px; } }
+@media(max-width:767px) {
+ .hero-description { font-size:12px; } .hero-title { font-size:78px; } .hero-eyebrow { font-size:8px; } .hero-ctas .button { font-size:10px; } .benefits-inner>div { font-size:7px; } .category-bottom p { font-size:9px; } .category-bottom h3 { font-size:32px; } .category-number { font-size:6px; }
+ .product-meta-top>span { font-size:7px; letter-spacing:.1px; } .product-name { font-size:12px; } .product-price strong { font-size:14px; } .product-price del { font-size:10px; } .product-price>span { font-size:9px; } .product-badge { font-size:6px; padding:5px 6px; max-width:calc(100% - 58px); } .product-meta-top { min-height:29px; } .swatches>button { min-width:24px; min-height:28px; } .swatches>button>span { width:8px; height:8px; } .quick-add { font-size:10px; min-height:40px; }
+ .section-heading .eyebrow { font-size:8px; } .section-heading-right p { font-size:11px; } .section-heading-right .text-link { font-size:10px; } .collection-counter { font-size:6px; } .lookbook-footnote { font-size:7px; letter-spacing:.7px; } .lookbook-copy .section-description { font-size:13px; } .budget-overline { font-size:6px; } .budget-card>p { font-size:8px; } .budget-bottom { font-size:8px; } .budget-card { height:227px; } .store-intro { font-size:12px; } .store-details p { font-size:11px; } .store-map-caption { font-size:5.5px; } .store-gallery-label>span:last-child { font-size:8px; }
+ .footer-top>div>p { font-size:11px; } .footer-link-column a,.footer-link-column>button,.footer-store>p { font-size:11px; } .footer-bottom { font-size:8px; } .product-short-description { font-size:13px; } .product-perks>span { font-size:8px; } .product-thumbnails>span { font-size:7px; } .tax-note,.colour-note,.variant-stock { font-size:9px; } .product-choice-label { font-size:12px; } .delivery-check-heading>strong { font-size:11px; } .delivery-check>small { font-size:8px; } .checkout-heading>p { font-size:11px; } .checkout-panel-heading h2 { font-size:23px; } .checkout-panel-heading p { font-size:10px; } .checkout-steps>button { font-size:9px; } .checkout-security-note { font-size:8px; } .form-field { font-size:10px; } .form-field input,.form-field select { font-size:11px; } .form-field input::placeholder { font-size:10px; } .fulfilment-choice>button { font-size:9px; } .contact-review small,.delivery-options small { font-size:8px; } .payment-prototype-banner strong { font-size:8px; } .payment-prototype-banner small { font-size:8px; } .payment-preview>p,.prototype-consent { font-size:10px; } .decline-control { font-size:9px; } .order-success>p { font-size:11px; } .prototype-note { font-size:9px; }
+ html[lang="hi"] .hero-title { font-size:47px; line-height:1.48; letter-spacing:-1px; } html[lang="hi"] .category-bottom h3 { font-size:24px; line-height:1.4; } html[lang="hi"] .section-heading h2 { font-size:29px; line-height:1.4; } html[lang="hi"] .lookbook-copy h2 { font-size:53px; }
+}
+@media(max-width:380px) { .hero-title { font-size:73px; } .hero-ctas .button { font-size:9px; } .budget-bottom { font-size:7px; } }
+@media(hover:none) {
+ .nav-actions .icon-button { width:39px; min-height:44px; } .text-link { min-height:44px; } .wishlist-button { height:44px; width:44px; } .wishlist-button>svg { width:17px; } .quick-add { min-height:44px; } .large-swatches>button { height:44px; width:44px; } .swatches>button { width:44px; min-height:44px; } .product-meta-top>span { width:100%; } .swatches { margin-left:-9px; } .quantity-control button { height:44px; width:44px; } .cart-remove { width:44px; height:44px; top:15px; right:-6px; } .cart-line>div>a { padding-right:31px; } .filter-toggle { min-height:44px; min-width:44px; justify-content:center; } .gallery-controls .icon-button { width:44px; min-height:44px; } .gallery-dots button { width:44px; height:44px; } .footer-link-column { gap:0; } .footer-link-column a,.footer-link-column>button { min-height:44px; display:flex; align-items:center; } .hotspot-dot { width:44px; height:44px; }
+}
